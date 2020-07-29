@@ -11,6 +11,7 @@ const MongoStore = connectMongo(expressSession);
 
 const indexRouter = require('./routes/index');
 const authenticationRouter = require('./routes/authentication');
+
 const User = require('./models/user');
 
 const app = express();
@@ -25,7 +26,8 @@ app.use(
   sassMiddleware({
     src: join(__dirname, 'public'),
     dest: join(__dirname, 'public'),
-    outputStyle: process.env.NODE_ENV === 'development' ? 'nested' : 'compressed',
+    outputStyle:
+      process.env.NODE_ENV === 'development' ? 'nested' : 'compressed',
     sourceMap: false,
     force: true
   })
